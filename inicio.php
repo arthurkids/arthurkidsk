@@ -54,38 +54,35 @@
 
 <div class="container" style="display: flex; justify-content: center; align-items: center; height: 90vh;">
 
-  <table>
-    
-    <tr>
-      <td width="300px", 
-      height="200px", 
-      border="2px solid black">
-        <p>
-          <center>
-            <h3 style="color: #ce9ef3;"><b>LINDAVISTA</b></h3>
-            <img src="public/imagenes/Picture1Logo.png" width="400px" alt="">
-          </center> 
-        </p>
-      </td>
-      <td width="300px">
-        <p>
-          <center>
-            <h3 style="color: #ce9ef3;"><b>POLANCO</b></h3>
-            <img src="public/imagenes/Picture1Logo.png" width="400px" alt="">
-          </center> 
-        </p>
-      </td>
-      <td width="300px">
-        <p>
-          <center>
-            <h3 style="color: #ce9ef3;"><b>PERISUR</b></h3>
-            <img src="public/imagenes/Picture1Logo.png" width="400px" alt="">
-          </center> 
-        </p>
-      </td>
-    </tr>
+    <div style="text-align: center; color: #494948;">
+
+    <img src="public/imagenes/descarga.jpeg" alt="Lindavista" style="float: left;"  width="300" height="300">
+    <img src="public/imagenes/descarga (1).jpeg" alt="Lindavista" style="float: right;"  width="300" height="300">
+            <h2>Bienvenido a nuestro Salón de Eventos</h2>
+            <p>Somos tu mejor opción para celebrar eventos inolvidables en la Ciudad de México.</p>
+
+            <h3>Nuestras Sucursales</h3>
+            <p>Contamos con tres ubicaciones estratégicas para atenderte:</p>
+                <li><strong>Lindavista:</strong> Dirección Lindavista, Ciudad de México</li>
+                <li><strong>Polanco:</strong> Dirección Polanco, Ciudad de México</li>
+                <li><strong>Perisur:</strong> Dirección Perisur, Ciudad de México</li>
+
+
+            <h3>Experiencia y Compromiso</h3>
+            <p>Llevamos más de 7 años en el mercado de fiestas infantiles, brindando momentos especiales a nuestros clientes. Nos caracterizamos por adaptarnos a tu presupuesto, asegurándonos de que tu evento sea único y memorable.</p>
+
+            <h3>Servicios</h3>
+            <p>Ofrecemos una amplia gama de servicios para satisfacer todas tus necesidades:</p>
+
+                <li>Eventos Infantiles</li>
+                <li>Fiestas de Cumpleaños</li>
+                <li>Reservaciones Personalizadas</li>
+                <li>Atención a Clientes</li>
+
+
+            <p>¡Gracias por elegirnos para tus celebraciones!</p>
+        </div>
   
-</table>
 </div>
 
 

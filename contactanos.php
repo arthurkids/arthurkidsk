@@ -1,3 +1,4 @@
+
 <?php include('app/config.php');?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,38 +55,41 @@
 
 <div class="container" style="display: flex; justify-content: center; align-items: center; height: 90vh;">
 
-  <table>
-    
-    <tr>
-      <td width="300px", 
-      height="200px", 
-      border="2px solid black">
-        <p>
-          <center>
-            <h3 style="color: #ce9ef3;"><b>LINDAVISTA</b></h3>
-            <img src="public/imagenes/Picture1Logo.png" width="400px" alt="">
-          </center> 
-        </p>
-      </td>
-      <td width="300px">
-        <p>
-          <center>
-            <h3 style="color: #ce9ef3;"><b>POLANCO</b></h3>
-            <img src="public/imagenes/Picture1Logo.png" width="400px" alt="">
-          </center> 
-        </p>
-      </td>
-      <td width="300px">
-        <p>
-          <center>
-            <h3 style="color: #ce9ef3;"><b>PERISUR</b></h3>
-            <img src="public/imagenes/Picture1Logo.png" width="400px" alt="">
-          </center> 
-        </p>
-      </td>
-    </tr>
-  
-</table>
+    <div style="text-align: center; color: #494948;">
+
+       
+
+        <h2>Contacto</h2>
+        <p>Estamos aquí para ayudarte a planificar tu próximo evento. ¡Contáctanos para más información!</p>
+
+        <!-- Información de contacto -->
+        <div style="margin-top: 20px;">
+            <h3>Dirección</h3>
+            <p>Visítanos en cualquiera de nuestras sucursales:</p>
+                <li><strong>Lindavista:</strong> Dirección Lindavista, Ciudad de México</li>
+                <li><strong>Polanco:</strong> Dirección Polanco, Ciudad de México</li>
+                <li><strong>Perisur:</strong> Dirección Perisur, Ciudad de México</li>
+
+            <img src="public/imagenes/SKY-ROLLER-2.jpg" alt="" style="float: left;"  width="150" height="170">
+            <img src="public/imagenes/2021-09-21.jpg" alt="" style="float: right;"  width="150" height="170">
+
+            <h3>Teléfono</h3>
+            <p>¡Llámanos para reservar tu evento!</p>
+            <p><strong>Teléfono:</strong> (123) 456-7890</p>
+
+            <h3>Correo Electrónico</h3>
+            <p>Envíanos un correo electrónico para consultas:</p>
+            <p><strong>Email:</strong> arthurkidsk@gmail.com</p>
+            
+        </div>
+
+        <!-- Redes Sociales -->
+        <div style="margin-top: 20px;">
+            <h3>Síguenos en Redes Sociales</h3>
+            <p>Nos encuentras como <strong>ArthurKidsK</strong> en todas nuestras plataformas:</p>
+            
+        </div>
+    </div>
 </div>
 
 
