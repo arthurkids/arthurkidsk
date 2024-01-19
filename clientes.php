@@ -1,14 +1,13 @@
-<?php include('app/config.php');?>
+<?php 
+include('app/config.php');
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Public/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>INDEX</title>
 </head>
-
-
 <body style="background-image:url('public/imagenes/fondo.png')">
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f8a963;">
 <a class="navbar-brand" href="index.php">
@@ -51,43 +50,55 @@
 </nav>
 
 <div class="container" style="display: flex; justify-content: center; align-items: center; height: 90vh;">
-
-<div class="card-header">
-    <h3 class="card-title">MAPEO ACTUAL DE SALONES</h3>
+ 
+  <div class="content-wrapper">
     <br>
+  <div class="container">
+      <h2>Creación de Nuevo Evento</h2>
+      <div class="container">
         <div class="row">
-            <div class="col-6">
-                <div class="form-group">
-                    <label for="fecha">Fecha:</label>
-                    <input type="date" class="form-control" id="fecha" >
+            <div class="col-md-6">
+                <div class="card" style="border: 1px solid #CAFB9E">
+                    <div class="card-header" style="background-color: #CAFB9E">
+                        <h4>Nuevo Evento</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="">Nombre</label>
+                            <input type="text" class="form-control" id="nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Apellido</label>
+                            <input type="text" class="form-control" id="apellido">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Email</label>
+                            <input type="email" class="form-control" id="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Telefono</label>
+                            <input type="number" class="form-control" id="telefono">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn" style="background-color: #CAFB9E" id="btnguardar">Guardar</button>
+                            <a href="<?php echo $URL;?>/clientes/" class="btn btn-default" >Cancelar</a>
+                        </div>
+                        <div id="respuesta">
+
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-6">
-                <div class="form-group">
-                    <label for="hora">Hora:</label>
-                    <input type="time" class="form-control" id="hora">
-                </div>
-            </div>
+            <div class="col-md-6"></div>
         </div>
-        <div class="form-group">
-          <button class="btn" style="background-color: #F79F64" id="btnguardar">Guardar</button>
-          <a href="<?php echo $URL;?>/usuarios/" class="btn btn-default" >Cancelar</a>
-        </div>
-        <div id="respuesta">
-
-        </div>
-
-
-</div>
-
-
-
-<script src="Public/js/jquery-3.5.1.min.js"></script>
+      </div>
+  </div>
+  </div>
+  <script src="Public/js/jquery-3.5.1.min.js"></script>
     <script src="Public/js/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="Public/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
-
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -152,30 +163,37 @@
 
 <script>
     $('#btnguardar').click(function () {
-       entrar();
+        entrar();
 
     });
 
-    $('#passworduser').keypress(function(e){
+    $('#nombre').keypress(function(e){
       if(e.which == 13){
         entrar();
       }
     });
 
     function entrar(){
-        var fecha = $('#fecha').val();
-        var hora = $('#hora').val();
+        var nombre = $('#nombre').val();
+        var apellido = $('#apellido').val();
+        var email = $('#email').val();
+        var telefono = $('#telefono').val();
 
-
-        if(fecha == ""){
+        if(nombre == ""){
             alert('Debe llenar este campo');
-            $('#fecha').focus();
-        }else if(hora == ""){
+            $('#nombre').focus();
+        }else if(apellido == ""){
             alert('Debe llenar este campo');
-            $('#hora').focus();
+            $('#apellido').focus();
+        }else if(email == ""){
+            alert('Debe llenar este campo');
+            $('#email').focus();
+        }else if(telefono == ""){
+            alert('Debe llenar este campo');
+            $('#telefono').focus();
         }else{
-            var url="eventos2.php";
-            $.post(url,{fecha:fecha, hora:hora},function(datos){
+            var url="controller_createc.php";
+            $.post(url,{nombre:nombre, apellido:apellido, email:email, telefono:telefono},function(datos){
                 $('#respuesta').html(datos);
             });
         }

@@ -1,14 +1,14 @@
-<?php include('app/config.php');?>
+<?php 
+include('app/config.php');
+
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Public/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>INDEX</title>
 </head>
-
-
 <body style="background-image:url('public/imagenes/fondo.png')">
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f8a963;">
 <a class="navbar-brand" href="index.php">
@@ -34,7 +34,7 @@
           <a class="dropdown-item" href="salones.php">SALONES</a>
           <a class="dropdown-item" href="clientes.php">CLIENTES</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="eventosi.php">EVENTOS</a>
+          <a class="dropdown-item" href="eventos.php">EVENTOS</a>
         </div>
       </li>
       <li class="nav-item active">
@@ -51,43 +51,50 @@
 </nav>
 
 <div class="container" style="display: flex; justify-content: center; align-items: center; height: 90vh;">
-
-<div class="card-header">
-    <h3 class="card-title">MAPEO ACTUAL DE SALONES</h3>
+ 
+  <div class="content-wrapper">
     <br>
-        <div class="row">
-            <div class="col-6">
-                <div class="form-group">
-                    <label for="fecha">Fecha:</label>
-                    <input type="date" class="form-control" id="fecha" >
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="form-group">
-                    <label for="hora">Hora:</label>
-                    <input type="time" class="form-control" id="hora">
-                </div>
-            </div>
-        </div>
-        <div class="form-group">
-          <button class="btn" style="background-color: #F79F64" id="btnguardar">Guardar</button>
-          <a href="<?php echo $URL;?>/usuarios/" class="btn btn-default" >Cancelar</a>
-        </div>
-        <div id="respuesta">
-
-        </div>
+  <div class="container">
 
 
-</div>
+      <br>
+        <?php
+        if(isset($_GET['id'])) {
+            $id_map = $_GET['id'];
+          $contador = 0;
+          $query_mapeo = $pdo->prepare("SELECT * FROM tb_mapeos WHERE estado = '1' AND id_map = '$id_map'");
+          $query_mapeo->execute();
+          $mapeos = $query_mapeo->fetchAll(PDO::FETCH_ASSOC);
+          foreach($mapeos as $mapeo){
+              $id_map = $mapeo['id_map'];
+              $num_espacio = $mapeo['num_espacio'];
+              $nombre_espacio = $mapeo['nombre_espacio'];
+              $observaciones = $mapeo['observacion'];
+              $direccion = $mapeo['dirección'];
+              $foto = $mapeo['foto'];
+              $contador = $contador + 1;
+          ?>
+                
 
+          <?php
+          }
+          ?>
+          <h2>Salon <?php echo $nombre_espacio?></h2>
+                <p> Observaciones <?php echo $observaciones?></p>
+                <p> Direccion <?php echo $direccion?></p>
 
-
-<script src="Public/js/jquery-3.5.1.min.js"></script>
+                <?php
+        }
+        ?>
+ 
+  </div>
+  </div>
+  
+  <script src="Public/js/jquery-3.5.1.min.js"></script>
     <script src="Public/js/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="Public/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
-
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -149,35 +156,3 @@
       }
     }
   </script>
-
-<script>
-    $('#btnguardar').click(function () {
-       entrar();
-
-    });
-
-    $('#passworduser').keypress(function(e){
-      if(e.which == 13){
-        entrar();
-      }
-    });
-
-    function entrar(){
-        var fecha = $('#fecha').val();
-        var hora = $('#hora').val();
-
-
-        if(fecha == ""){
-            alert('Debe llenar este campo');
-            $('#fecha').focus();
-        }else if(hora == ""){
-            alert('Debe llenar este campo');
-            $('#hora').focus();
-        }else{
-            var url="eventos2.php";
-            $.post(url,{fecha:fecha, hora:hora},function(datos){
-                $('#respuesta').html(datos);
-            });
-        }
-    }
-</script>

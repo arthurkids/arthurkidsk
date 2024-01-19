@@ -31,12 +31,10 @@
           SALONES
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">SALONES</a>
-          <a class="dropdown-item" href="#">CLIENTES</a>
+          <a class="dropdown-item" href="salones.php">SALONES</a>
+          <a class="dropdown-item" href="clientes.php">CLIENTES</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">RESERVA</a>
-          <a class="dropdown-item" href="#">ACTUALIZA</a>
-          <a class="dropdown-item" href="#">EVENTOS</a>
+          <a class="dropdown-item" href="eventos.php">EVENTOS</a>
         </div>
       </li>
       <li class="nav-item active">
